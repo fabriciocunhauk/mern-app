@@ -13,3 +13,8 @@ export const getPlayers =  async (req, res) => {
    const players = await Player.find();
     return res.json(players);
 };
+
+export const getPlayerWithID =  async (req, res) => {
+   const players = await Player.findById(req.params.playerId).exec();
+    return res.json(players);
+};
