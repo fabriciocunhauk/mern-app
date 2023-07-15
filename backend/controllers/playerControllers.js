@@ -25,6 +25,6 @@ export const updatePlayer =  async (req, res) => {
 };
 
 export const deletePlayerWithID =  async (req, res) => {
-   const players = await Player.findOneAndDelete({ _id: req.params.playerId }, req.body);
-    return res.json(players);
+    await Player.findOneAndDelete({ _id: req.params.playerId }, req.body);
+        return res.json({ message: "Successfully deleted player" });
 };
