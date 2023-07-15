@@ -18,3 +18,8 @@ export const getPlayerWithID =  async (req, res) => {
    const players = await Player.findById(req.params.playerId).exec();
     return res.json(players);
 };
+
+export const updatePlayer =  async (req, res) => {
+   const players = await Player.findOneAndUpdate({ _id: req.params.playerId }, req.body, {new: true});
+    return res.json(players);
+};
